@@ -101,7 +101,8 @@ if uploaded_file is not None:
             faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
             # 検出した顔に枠を描画
             for (x, y, w, h) in faces:
-                cv2.rectangle(img_cv, (x, y), (x+w, y+h), (255, 0, 0), 2)
+                cv2.rectangle(img_cv, (x, y), (x+w, y+h), (255, 0, 0), 3)
+                cv2.rectangle(img_cv, (x, y), (x+w, y+h), (255, 255, 255), 1)
             result = img_cv
 
         elif option == "---":
