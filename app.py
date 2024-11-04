@@ -22,7 +22,7 @@ if uploaded_file is not None:
                 "histogram equalization", "inversion", "posterization", "emboss",
                 "averaging filter", "bilateral filter", "median filter", "Gaussian blur",
                 "binarization", "binarization (Otsu)",
-                "face detection", object detection (YOLO)"),
+                "face detection", "object detection (YOLO)"),
                  index=0,
                  horizontal=True,
     )
