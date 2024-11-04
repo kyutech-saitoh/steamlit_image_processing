@@ -17,13 +17,14 @@ if uploaded_file is not None:
     st.image(image, caption="Uploaded image", use_column_width=True)
     
     # 画像処理オプションの選択
-    option = st.selectbox(
-        "Please select an image processing method",
-        ("edge detection (Sobel)", "edge detection (Canny)", "---",
-        "histogram equalization", "inversion", "posterization", "emboss", "---",
-        "averaging filter", "bilateral filter", "median filter", "Gaussian blur", "---",
-        "binarization", "binarization (Otsu)", "---",
-        "face detection", "object detection (YOLO)")
+    option = st.radio(label="Please select an image processing method",
+                 options=("edge detection (Sobel)", "edge detection (Canny)",
+                "histogram equalization", "inversion", "posterization", "emboss",
+                "averaging filter", "bilateral filter", "median filter", "Gaussian blur",
+                "binarization", "binarization (Otsu)",
+                "face detection", "object detection (YOLO)"),
+                 index=0,
+                 horizontal=True,
     )
 
     # 実行ボタン
