@@ -6,7 +6,7 @@ from ultralytics import YOLO
 
 st.title("Image processing")
 
-#model = YOLO('yolov8n.pt')
+model = YOLO('yolov8n.pt')
 
 # 画像ファイルのアップロード
 uploaded_file = st.file_uploader("Upload an image file", type=["jpg", "jpeg", "png"])
@@ -22,7 +22,7 @@ if uploaded_file is not None:
                 "histogram equalization", "inversion", "posterization", "emboss",
                 "averaging filter", "bilateral filter", "median filter", "Gaussian blur",
                 "binarization", "binarization (Otsu)",
-                "face detection"),
+                "face detection", object detection (YOLO)"),
                  index=0,
                  horizontal=True,
     )
@@ -111,7 +111,6 @@ if uploaded_file is not None:
                 cv2.rectangle(img_result, (x, y), (x+w, y+h), (255, 0, 0), 3)
                 cv2.rectangle(img_result, (x, y), (x+w, y+h), (255, 255, 255), 1)
 
-        """
         elif option == "object detection (YOLO)":
             result = model(img_cv)
 
@@ -128,10 +127,6 @@ if uploaded_file is not None:
                 cv2.rectangle(img_result, (x0, y0), (x1, y1), (0, 255, 0), 2)
                 cv2.rectangle(img_result, (x0, y0), (x1, y1), (255, 255, 255), 1)
                 cv2.putText(img_result, label, (x0, y0 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-        elif option == "---":
-            img_result = img_cv.copy()
-        """
 
         # 2値画像や濃淡画像の場合、RGB画像に変換
         if len(img_result.shape) == 2:
